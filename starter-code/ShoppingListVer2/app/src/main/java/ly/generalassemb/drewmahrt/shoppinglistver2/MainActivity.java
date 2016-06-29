@@ -67,7 +67,9 @@ public class MainActivity extends AppCompatActivity {
         mClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                
+                mDetailIntent = new Intent(MainActivity.this, DetailActivity.class);
+                //mDetailIntent.putExtra("name", );
+                startActivity(mDetailIntent);
             }
         };
 
