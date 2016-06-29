@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 mDetailIntent.putExtra("DESCRIPTION", description);
                 mDetailIntent.putExtra("TYPE", type);
                 mDetailIntent.putExtra("PRICE", price);
-
                 startActivity(mDetailIntent);
             }
         };
