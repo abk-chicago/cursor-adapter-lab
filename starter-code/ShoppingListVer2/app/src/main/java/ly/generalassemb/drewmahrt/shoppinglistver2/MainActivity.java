@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 null);
 
 
-        mCursor = db.query("_id",null, null,null,null,null,null,null);
+        mCursor = db.query("SHOPPING_LIST",null, null,null,null,null,null,null);
         mListOfItems = (ListView) findViewById(R.id.shopping_list_view);
 
         final CursorAdapter mCursorAdapter = new CursorAdapter(MainActivity.this, mCursor, 0) {
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void bindView(View view, Context context, Cursor cursor) {
                 TextView txt = (TextView) view.findViewById(android.R.id.text1);
-                String rowData = cursor.getString(cursor.getColumnIndex("_id"));
+                String rowData = cursor.getString(cursor.getColumnIndex("_id")) + ". " + cursor.getString(cursor.getColumnIndex("ITEM_NAME"));
                 txt.setText(rowData);
             }
         };
@@ -65,16 +65,16 @@ public class MainActivity extends AppCompatActivity {
         mClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String name = mCursor.getString(mCursor.getColumnIndex("name"));
-                String description = mCursor.getString(mCursor.getColumnIndex("description"));
-                String type = mCursor.getString(mCursor.getColumnIndex("type"));
-                String price = mCursor.getString(mCursor.getColumnIndex("price"));
+                String name = mCursor.getString(mCursor.getColumnIndex("ITEM_NAME"));
+                String description = mCursor.getString(mCursor.getColumnIndex("DESCRIPTION"));
+                String type = mCursor.getString(mCursor.getColumnIndex("TYPE"));
+                String price = mCursor.getString(mCursor.getColumnIndex("PRICE"));
 
                 mDetailIntent = new Intent(MainActivity.this, DetailActivity.class);
-                mDetailIntent.putExtra("name", name);
-                mDetailIntent.putExtra("description", description);
-                mDetailIntent.putExtra("type", type);
-                mDetailIntent.putExtra("price", price);
+                mDetailIntent.putExtra("ITEM_NAME", name);
+                mDetailIntent.putExtra("DESCRIPTION", description);
+                mDetailIntent.putExtra("TYPE", type);
+                mDetailIntent.putExtra("PRICE", price);
 
                 startActivity(mDetailIntent);
             }

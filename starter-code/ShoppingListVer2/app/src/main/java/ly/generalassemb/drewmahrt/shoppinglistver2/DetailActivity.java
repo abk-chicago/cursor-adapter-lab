@@ -25,10 +25,10 @@ public class DetailActivity extends AppCompatActivity {
         mTxtType = (TextView) findViewById(R.id.grocery_type);
 
         Intent listIntent = getIntent();
-        String name = listIntent.getStringExtra("name");
-        String description = listIntent.getStringExtra("description");
-        String price = listIntent.getStringExtra("price");
-        String type = listIntent.getStringExtra("type");
+        String name = listIntent.getStringExtra("ITEM_NAME");
+        String description = listIntent.getStringExtra("DESCRIPTION");
+        String price = listIntent.getStringExtra("PRICE");
+        String type = listIntent.getStringExtra("TYPE");
 
         mTxtType.setText(type);
         mTxtType.setText(price);
