@@ -14,8 +14,6 @@ public class DetailActivity extends AppCompatActivity {
     TextView mTxtType;
     TextView mTxtPrice;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,16 +24,17 @@ public class DetailActivity extends AppCompatActivity {
         mTxtPrice = (TextView) findViewById(R.id.grocery_price);
         mTxtType = (TextView) findViewById(R.id.grocery_type);
 
-
         Intent listIntent = getIntent();
         String name = listIntent.getStringExtra("name");
         String description = listIntent.getStringExtra("description");
         String price = listIntent.getStringExtra("price");
         String type = listIntent.getStringExtra("type");
-        
+
+        mTxtType.setText(type);
+        mTxtType.setText(price);
+        mTxtType.setText(name);
+        mTxtType.setText(description);
 
     }
-
-
 
 }

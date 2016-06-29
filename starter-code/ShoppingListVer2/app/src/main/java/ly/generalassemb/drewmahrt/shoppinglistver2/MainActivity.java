@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         mCursor = db.query("_id",null, null,null,null,null,null,null);
         mListOfItems = (ListView) findViewById(R.id.shopping_list_view);
 
-        CursorAdapter mCursorAdapter = new CursorAdapter(MainActivity.this, mCursor, 0) {
+        final CursorAdapter mCursorAdapter = new CursorAdapter(MainActivity.this, mCursor, 0) {
             @Override
             public View newView(Context context, Cursor cursor, ViewGroup parent) {
                 return LayoutInflater.from(context).inflate(android.R.layout.simple_list_item_1, parent, false);
@@ -59,16 +59,23 @@ public class MainActivity extends AppCompatActivity {
                 TextView txt = (TextView) view.findViewById(android.R.id.text1);
                 String rowData = cursor.getString(cursor.getColumnIndex("_id"));
                 txt.setText(rowData);
-
             }
         };
-
 
         mClickListener = new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String name = mCursor.getString(mCursor.getColumnIndex("name"));
+                String description = mCursor.getString(mCursor.getColumnIndex("description"));
+                String type = mCursor.getString(mCursor.getColumnIndex("type"));
+                String price = mCursor.getString(mCursor.getColumnIndex("price"));
+
                 mDetailIntent = new Intent(MainActivity.this, DetailActivity.class);
-                //mDetailIntent.putExtra("name", );
+                mDetailIntent.putExtra("name", name);
+                mDetailIntent.putExtra("description", description);
+                mDetailIntent.putExtra("type", type);
+                mDetailIntent.putExtra("price", price);
+
                 startActivity(mDetailIntent);
             }
         };
