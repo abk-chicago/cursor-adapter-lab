@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void bindView(View view, Context context, Cursor cursor) {
                 TextView txt = (TextView) view.findViewById(android.R.id.text1);
-                String rowData = cursor.getString(cursor.getColumnIndex("_id")) + ". " + cursor.getString(cursor.getColumnIndex("ITEM_NAME"));
+                String rowData = cursor.getString(cursor.getColumnIndex("_id")) + ". " + cursor.getString(cursor.getColumnIndex("ITEM_NAME")) + " in " + cursor.getString(cursor.getColumnIndex("TYPE")) + " at $" + cursor.getString(cursor.getColumnIndex("PRICE"));
                 txt.setText(rowData);
             }
         };

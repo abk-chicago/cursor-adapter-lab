@@ -34,7 +34,5 @@ public class DetailActivity extends AppCompatActivity {
         mTxtType.setText(price);
         mTxtType.setText(name);
         mTxtType.setText(description);
-
     }
-
 }
