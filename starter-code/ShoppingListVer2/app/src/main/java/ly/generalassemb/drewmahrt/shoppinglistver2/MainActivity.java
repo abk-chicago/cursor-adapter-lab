@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void bindView(View view, Context context, Cursor cursor) {
                 TextView txt = (TextView) view.findViewById(android.R.id.text1);
-                String rowData = cursor.getString(cursor.getColumnIndex("_id")) + ". " + cursor.getString(cursor.getColumnIndex("ITEM_NAME")) + " in " + cursor.getString(cursor.getColumnIndex("TYPE")) + " at $" + cursor.getString(cursor.getColumnIndex("PRICE"));
+                String rowData = cursor.getString(cursor.getColumnIndex("_id")) + ". " + cursor.getString(cursor.getColumnIndex("ITEM_NAME"));
                 txt.setText(rowData);
             }
         };
@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String name = mCursor.getString(mCursor.getColumnIndex("ITEM_NAME"));
                 String description = mCursor.getString(mCursor.getColumnIndex("DESCRIPTION"));
-                String type = mCursor.getString(mCursor.getColumnIndex("TYPE"));
-                String price = mCursor.getString(mCursor.getColumnIndex("PRICE"));
+                String type = "department: " + mCursor.getString(mCursor.getColumnIndex("TYPE"));
+                String price = "price: $" + mCursor.getString(mCursor.getColumnIndex("PRICE"));
 
                 mDetailIntent = new Intent(MainActivity.this, DetailActivity.class);
                 mDetailIntent.putExtra("ITEM_NAME", name);

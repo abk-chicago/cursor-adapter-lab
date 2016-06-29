@@ -31,8 +31,8 @@ public class DetailActivity extends AppCompatActivity {
         String type = listIntent.getStringExtra("TYPE");
 
         mTxtType.setText(type);
-        mTxtType.setText(price);
-        mTxtType.setText(name);
-        mTxtType.setText(description);
+        mTxtPrice.setText(price);
+        mTxtItem.setText(name);
+        mTxtDetail.setText(description);
     }
 }
